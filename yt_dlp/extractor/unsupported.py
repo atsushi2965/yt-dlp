@@ -54,6 +54,9 @@ class KnownDRMIE(UnsupportedInfoExtractor):
         r'viki\.com',
         r'deezer\.com',
         r'b-ch\.com',
+        r'ctv\.ca',
+        r'noovo\.ca',
+        r'tsn\.ca',
     )
 
     _TESTS = [{
@@ -171,6 +174,15 @@ class KnownDRMIE(UnsupportedInfoExtractor):
         'only_matching': True,
     }, {
         'url': 'https://www.b-ch.com/titles/8203/001',
+        'only_matching': True,
+    }, {
+        'url': 'https://www.ctv.ca/shows/masterchef-53506/the-audition-battles-s15e1',
+        'only_matching': True,
+    }, {
+        'url': 'https://www.noovo.ca/emissions/lamour-est-dans-le-pre/prets-pour-lamour-s10e1',
+        'only_matching': True,
+    }, {
+        'url': 'https://www.tsn.ca/video/relaxed-oilers-look-to-put-emotional-game-2-loss-in-the-rearview%7E3148747',
         'only_matching': True,
     }]
 
