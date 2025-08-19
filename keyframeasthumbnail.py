@@ -14,11 +14,10 @@ class YoutubeDLKeyframe(YoutubeDL):
         thumb_filename = replace_extension(filename, 'png', info_dict.get('ext'))
         id = 'keyframe'
         with YoutubeDL({'format': 'bv*'}) as ydl:
-            info_video = ydl.process_video_result(info_dict, False)
-        info_dict['thumbnails'] = [{
-            'url': info_video['url'],
-            'filepath': thumb_filename
-        }]
+            info_dict['thumbnails'] = [{
+                'url': ydl.process_video_result(info_dict, False)['url'],
+                'filepath': thumb_filename
+            }]
         self.to_screen(f'[info] Reserving {label} thumbnail for {id} to: {thumb_filename}')
         return [(
             thumb_filename,
@@ -96,4 +95,4 @@ with YoutubeDLKeyframe({  # -vx --embed-thumbnail --ffmpeg-location=..\..\ffmpeg
     'writethumbnail': True
 }) as ydl:
     ydl.add_post_processor(FFmpegWriteKeyframePP(ydl), 'before_dl')
-    ydl.download('BNjW6L4lrYM')
+    ydl.download(['BNjW6L4lrYM'])
